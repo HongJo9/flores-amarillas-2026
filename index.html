@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#142446">
+  <title>Flores amarillas para ti</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="scene" id="scene" aria-label="Un amanecer en un campo de flores amarillas">
+    <picture class="landscape" aria-hidden="true">
+      <source media="(max-width: 620px)" srcset="assets/images/campo-girasoles-vertical.webp">
+      <img src="assets/images/campo-girasoles-horizontal.webp" alt="">
+    </picture>
+
+    <div class="sky" aria-hidden="true">
+      <div class="stars" id="stars"></div>
+      <div class="moon"></div>
+    </div>
+
+    <p class="opening-line">A veces,<br>las cosas más bonitas<br>también amanecen...</p>
+
+    <div class="bouquet" aria-hidden="true">
+      <img src="assets/images/ramo-girasoles.webp" alt="">
+    </div>
+
+    <div class="hint" id="hint" aria-live="polite">
+      <span class="hint__first">Pss... creo que hay algo aquí</span>
+      <span class="hint__second">Toca la canastita</span>
+      <span class="hint__arrow">↓</span>
+    </div>
+
+    <button class="basket" id="basket" type="button" aria-label="Abrir la canasta">
+      <span class="basket__eyes" aria-hidden="true"><i></i><i></i></span>
+      <span class="basket__paw" aria-hidden="true">●</span>
+      <span class="basket__lid" aria-hidden="true"></span>
+      <span class="basket__body" aria-hidden="true">
+        <span class="basket__cloth"></span>
+        <span class="basket__lock"></span>
+      </span>
+    </button>
+
+    <div class="cat" id="cat" data-state="peek">
+      <img class="cat__state cat__state--peek" src="assets/images/gatito-asomandose.webp" alt="Gatito naranja asomándose desde la canasta">
+      <img class="cat__state cat__state--open" src="assets/images/gatito-canasta.webp" alt="Gatito naranja saliendo feliz de la canasta">
+      <img class="cat__state cat__state--parchment" src="assets/images/gatito-pergamino.webp" alt="Gatito naranja mostrando un pergamino">
+      <img class="cat__state cat__state--celebration" src="assets/images/gatito-celebrando.webp" alt="Gatito naranja celebrando con girasoles">
+
+      <section class="parchment" id="parchment" aria-label="Mensaje para ti">
+        <div class="parchment__content">
+          <h1>Para ti <span>♥</span></h1>
+          <p class="parchment__instruction">Toca cada mensaje para leerlo</p>
+
+          <div class="message-layout">
+            <figure class="photo-frame" id="photoFrame">
+              <img id="specialPhoto" src="assets/images/persona-especial.jpg" alt="Fotografía de una persona especial">
+              <span class="photo-frame__placeholder">Tu foto<br>aquí</span>
+              <i class="photo-frame__flower photo-frame__flower--one"></i>
+              <i class="photo-frame__flower photo-frame__flower--two"></i>
+              <i class="photo-frame__flower photo-frame__flower--three"></i>
+              <i class="photo-frame__flower photo-frame__flower--four"></i>
+              <figcaption>Tu nombre aquí</figcaption>
+            </figure>
+
+            <div class="message-accordion">
+              <details class="message-item">
+                <summary>Lo que significan estas flores</summary>
+                <p>Dicen que las flores amarillas representan esos pequeños deseos de querer bonito...</p>
+              </details>
+
+              <details class="message-item">
+                <summary>Estas florecieron para ti</summary>
+                <p>Así que hoy estas florecieron especialmente para ti.</p>
+              </details>
+
+              <details class="message-item">
+                <summary>Un deseo bonito</summary>
+                <p>Que esta primavera te encuentre sonriendo, creciendo y rodeada de cosas bonitas.</p>
+              </details>
+
+              <details class="message-item message-item--final">
+                <summary>Un último mensaje 💛</summary>
+                <p>Feliz día de las flores amarillas.</p>
+                <button class="celebration-button" id="celebrationButton" type="button">Ver sorpresa final</button>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="celebration-message">Que siempre florezcas <span>♥</span></div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+    <div class="butterfly butterfly--one" aria-hidden="true"><i></i><i></i></div>
+    <div class="butterfly butterfly--two" aria-hidden="true"><i></i><i></i></div>
+
+    <button class="music-button" id="musicButton" type="button" aria-label="Activar audios" title="Activar o desactivar audios">♪</button>
+    <audio id="music" preload="auto" autoplay loop>
+      <source src="assets/audio/music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="basketSound" preload="none" loop>
+      <source src="assets/audio/basket-open.mp3" type="audio/mpeg">
+    </audio>
+
+    <footer class="signature">Realizado por <span>hongjo_code</span></footer>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
