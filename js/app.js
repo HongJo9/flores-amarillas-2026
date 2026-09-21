@@ -34,10 +34,9 @@ const particles = document.querySelector("#particles");
 const music = document.querySelector("#music");
 const basketSound = document.querySelector("#basketSound");
 const musicButton = document.querySelector("#musicButton");
+const recipientName = document.querySelector("#recipientName");
 const accordionItems = [...document.querySelectorAll(".message-item")];
 const celebrationButton = document.querySelector("#celebrationButton");
-const specialPhoto = document.querySelector("#specialPhoto");
-const photoFrame = document.querySelector("#photoFrame");
 
 const wait = (milliseconds) => new Promise(resolve => setTimeout(resolve, milliseconds));
 const randomBetween = (minimum, maximum) => Math.random() * (maximum - minimum) + minimum;
@@ -72,13 +71,10 @@ async function startExperience() {
   hint.classList.add("is-visible");
 }
 
-function setupSpecialPhoto() {
-  const showPlaceholder = () => photoFrame.classList.add("is-missing");
-  specialPhoto.addEventListener("error", showPlaceholder);
-
-  if (specialPhoto.complete && specialPhoto.naturalWidth === 0) {
-    showPlaceholder();
-  }
+function setRecipientName() {
+  const nameFromUrl = new URLSearchParams(window.location.search).get("para");
+  const name = nameFromUrl?.trim().slice(0, 40);
+  recipientName.firstChild.textContent = name ? `Para ${name} ` : "Para ti ";
 }
 
 // Canasta y estados del gato
@@ -252,7 +248,7 @@ function initialize() {
   window.addEventListener("keydown", ensureBackgroundAudio, { once: true });
 
   setupAccordion();
-  setupSpecialPhoto();
+  setRecipientName();
   startExperience();
 }
 
